@@ -113,7 +113,7 @@ impl<K, V, T: MutableInnerMap<K, V>> ShardMap<K, V, T> {
         self.shards[self.shard(k)].get(k)
     }
 
-    pub fn insert(&mut self, k: K, v: V) -> Option<V>
+    pub fn insert(&self, k: K, v: V) -> Option<V>
     where
         K: Eq + Hash,
     {
@@ -121,7 +121,7 @@ impl<K, V, T: MutableInnerMap<K, V>> ShardMap<K, V, T> {
         self.shards[idx].insert(k, v)
     }
 
-    pub fn remove<Q>(&mut self, k: &Q) -> Option<V>
+    pub fn remove<Q>(&self, k: &Q) -> Option<V>
     where
         K: Borrow<Q> + Eq + Hash,
         Q: Eq + Hash + ?Sized,
@@ -239,7 +239,7 @@ mod tests {
 
     #[test]
     fn test_shard_map() {
-        let mut map = MutableShardMap::<usize, usize>::default();
+        let map = MutableShardMap::<usize, usize>::default();
 
         assert!(map.is_empty());
         map.insert(1, 1);
