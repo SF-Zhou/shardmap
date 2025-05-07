@@ -1,0 +1,12 @@
+[package]
+name = "shardmap"
+version = "0.1.0"
+edition = "2021"
+
+authors = ["SF-Zhou <sfzhou.scut@gmail.com>"]
+homepage = "https://github.com/SF-Zhou/shardmap"
+repository = "https://github.com/SF-Zhou/shardmap"
+description = "A sharded hashmap optimized for concurrent writes (via per-shard mutexes) and lock-free immutable snapshots for high-performance reads after bulk export."
+license = "MIT OR Apache-2.0"
+
+[dependencies]
